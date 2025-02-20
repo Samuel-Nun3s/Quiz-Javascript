@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+/* Configuracoes gerais */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #594C0B;
+}
+
+/* Header */
+header {
+    width: calc(100vw - 15px);
+    padding: 20px;
+    align-items: center;
+    background-color: #0D0D0D;
+    box-shadow: 1px 1px 10px #F2CF1D;
+}
+
+#content-header {
+    max-width: 940px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h2 {
+    font-size: 1.7em;
+    color: aliceblue;
+}
+
+header h2 b {
+    color: #F2CF1D;
+}
+
+#nav-social > a > img {
+    width: 30px;
+    margin-right: 20px;
+}
+
+/* Perguntas */
+main {
+    max-width: 960px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.questions {
+    width: 80vw;
+    max-width: 768px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #0D0D0D;
+    color: white;
+    box-shadow: 0px 0px 15px #8C7811;
+}
+
+.questions h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.question {
+    margin-bottom: 10px;
+}
+
+.response form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 7px;
+}
+
+/* Botao finalizar */
+#finish button {
+    width: 80vw;
+    max-width: 768px;
+    height: 40px;
+    border-radius: 10px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    border: none;
+    cursor: pointer;
+    background-color: #F2CF1D;
+    opacity: .7;
+    font-weight: 900;
+    font-size: 18px;
+    transition: .3s;
+}
+
+#finish button:hover {
+    opacity: 1;
+    box-shadow: 0px 0px 10px#F2CF1D;
+}
+
+/* Pontuacao */
+#score {
+    width: 80vw;
+    max-width: 768px;
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 10px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: #BFA41B;
+}
+
+.hidden {
+    display: none;
+}
+
+/* footer */
+footer {
+    width: calc(100vw - 15px);
+    height: 50px;
+    padding: 10px;
+    position: relative;
+    margin-top: 50px;
+    left: 0;
+    bottom: 0;
+    background-color: #0D0D0D;
+    align-items: center;
+    box-shadow: 2px 2px 10px #F2CF1D;
+}
+
+#footer-content {
+    max-width: 940px;
+    height: 100%;
+    display: flex;
+    color: aliceblue;
+    justify-content: space-between;
+    align-items: center;
+}
