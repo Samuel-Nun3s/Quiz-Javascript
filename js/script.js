@@ -1,4 +1,4 @@
-//   Buscando perguntas no JSON:
+// ------------------------ Buscando perguntas no JSON ------------------------
 async function loadQuestions() {
     try {
         const response = await fetch('./questions.json'); // Busca o arquivo JSON
@@ -13,7 +13,7 @@ async function loadQuestions() {
     }
 }
 
-//   Cria as perguntas no DOM:
+// ------------------------ Cria as perguntas no DOM ------------------------
 // Funcao principal de criacao:
 function createQuestions(questionsLoaded) {
     let totalquestions = questionsLoaded.length;
@@ -74,6 +74,7 @@ function createDivResponse(alternatives, i) {
     // console.log("Div de resposta: ", divResponse);
 
     let form = document.createElement("form");
+    form.setAttribute("class", "forms");
     // console.log("Form de resposta: ", form);
 
     for (let c = 0; c < alternatives.length; c++) {
@@ -100,6 +101,7 @@ function createInput(index, count) {
     input.setAttribute("type", "radio");
     input.setAttribute("name", "question" + index);
     input.setAttribute("id", "question" + count + "alt" + index);
+    input.setAttribute("value", count);
     // console.log("Input da resposta: ", input);
     return input;
 }
@@ -122,16 +124,70 @@ function createQuestionsDOM(question) {
 // Chama a funcao para carregar as perguntas do JSON:
 loadQuestions();
 
-//   Logica do QUIZ:
+// ------------------------ Logica do QUIZ ------------------------
+// Coleta as respostas certas:
 var questions = [];
+var responses = [];
 
 function setResponses(id, rightAlt) {
     let question = {
         id: id,
         right_alternative: rightAlt
     };
-    console.log("Objeto da questao com a resposta certa: ", question);
+
+    // console.log("Objeto da questao com a resposta certa: ", question);
 
     questions.push(question);
-    console.log("Array das respostas certas", questions);
+    // console.log("Array das respostas certas", questions);
 }
+
+// Botao de Finalizar:
+document.getElementById('finalizarQuiz').addEventListener('click', () => {
+    const responsesQuestions = document.querySelectorAll('.forms');
+    // console.log("Perguntas: ", perguntas);
+    let allAnswered = true;
+
+    responsesQuestions.forEach((question, index) => {
+        const name = question.querySelector('input[type="radio"]').name;
+        // console.log("Name: ", name);
+        const selected = document.querySelector(`input[name="${name}"]:checked`);
+        // console.log("Selecionado: ", selected);
+
+        if (selected) {
+            let selectedAnswers= {
+                question: selected.name,
+                selected_alternative: selected.value
+            }
+            responses.push(selectedAnswers);
+            console.log(responses);
+        } else {
+            allAnswered = false;
+        }
+    });
+
+    calculateAccuracies();
+});
+
+// Calculando os acertos: 
+function calculateAccuracies() {
+    console.log("Array de questoes para o calculo: ", questions);
+    console.log("Array de respostas para o calculo: ", responses);
+
+    let totalHits = 0;
+    let percentageOfHits = 0;
+
+    for (let c = 0; c < questions.length; c++) {
+        console.log("Alternativa certa: ", questions[c].right_alternative);
+        console.log("Alternativa selecionada: ", responses[c].selected_alternative);
+
+        if (questions[c].right_alternative == responses[c].selected_alternative) {
+            totalHits += 1;
+        }
+    }
+
+    percentageOfHits = ((totalHits / questions.length) * 100);
+    console.log("Total de acertos: ", totalHits);
+    console.log("Porcentagem de acertos: ", percentageOfHits + "%");
+}
+
+// Mostrar o resultado:
