@@ -83,9 +83,13 @@ function createDivResponse(alternatives, i) {
         // console.log("Div form-group: ", divFormGroup);
 
         let input = createInput(i, c);
-        let label = createLabels(alternatives, c, i);
+        let label = createLabels(c, i);
 
-        divFormGroup.appendChild(input);
+        let span = document.createElement("span");
+
+        label.appendChild(input);
+        label.appendChild(span);
+        label.innerHTML += alternatives[c];
         divFormGroup.appendChild(label);
         form.appendChild(divFormGroup);
     }
@@ -107,10 +111,10 @@ function createInput(index, count) {
 }
 
 // Cria as labels das respostas:
-function createLabels(alternatives, count, index) {
+function createLabels(count, index) {
     let label = document.createElement("label");
     label.setAttribute("for", "question" + count + "alt" + index);
-    label.innerHTML = alternatives[count];
+    label.setAttribute("class", "custom-radio");
     // console.log("Label da resposta: ", label);
     return label;
 }
@@ -155,15 +159,21 @@ document.getElementById('finalizarQuiz').addEventListener('click', () => {
 
         if (selected) {
             let selectedAnswers= {
-                question: selected.name,
+                question: selected.id,
                 selected_alternative: selected.value
             }
             responses.push(selectedAnswers);
-            console.log(responses);
+            // console.log("Array de respostas: ",responses);
+            // console.log("ResponsesQuestions: ", responsesQuestions);
         } else {
             allAnswered = false;
         }
     });
+
+    if (!allAnswered) {
+        alert("Por favor, responda todas as perguntas antes de finalizar.");
+        return allAnswered = true;
+    }
 
     calculateAccuracies();
 });
@@ -177,17 +187,54 @@ function calculateAccuracies() {
     let percentageOfHits = 0;
 
     for (let c = 0; c < questions.length; c++) {
-        console.log("Alternativa certa: ", questions[c].right_alternative);
-        console.log("Alternativa selecionada: ", responses[c].selected_alternative);
+        // console.log("Alternativa certa: ", questions[c].right_alternative);
+        // console.log("Alternativa selecionada: ", responses[c].selected_alternative);
 
         if (questions[c].right_alternative == responses[c].selected_alternative) {
             totalHits += 1;
+            console.log("Conteudo da variavel questions: ", questions[c].id);
+
+            const section = document.querySelector(`#section${c}`);
+            section.style.border = "2px solid green";
+        } else {
+            const section = document.querySelector(`#section${c}`);
+            section.style.border = "2px solid red";
         }
+
+
     }
 
-    percentageOfHits = ((totalHits / questions.length) * 100);
+    percentageOfHits = ((totalHits / questions.length) * 100).toFixed(2);
     console.log("Total de acertos: ", totalHits);
     console.log("Porcentagem de acertos: ", percentageOfHits + "%");
+    markCorrectAnswers(); // Adiciona os emojis ✅
+    showResult(totalHits, questions.length, percentageOfHits);
 }
 
 // Mostrar o resultado:
+function showResult(totalHits, totalquestions, percent) {
+    let score = document.querySelector('#score');
+    score.classList.toggle('hidden');
+
+    let spanTotal = document.querySelector('#totalResults');
+    spanTotal.innerHTML = `${totalHits}/${totalquestions}`;
+
+    let spanPercent = document.querySelector('#percentResults');
+    spanPercent.innerHTML = percent;
+}
+
+document.querySelector('#replyAgain').addEventListener('click', () => {
+    location.reload();
+});
+
+// Adicionar emoji nas alternativas certas:
+function markCorrectAnswers() {
+    questions.forEach((question, index) => {
+        const correctAnswerId = `question${question.right_alternative}alt${index}`;
+        const correctLabel = document.querySelector(`label[for="${correctAnswerId}"]`);
+
+        if (correctLabel) {
+            correctLabel.innerHTML += " ✅";
+        }
+    });
+}

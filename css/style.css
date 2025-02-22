@@ -82,6 +82,41 @@ main {
     margin-bottom: 7px;
 }
 
+.custom-radio input {
+    display: none;
+}
+
+/* Estiliza o quadrado */
+.custom-radio span {
+    display: inline-block;
+    width: 20px; /* Tamanho do quadrado */
+    height: 20px;
+    border: 2px solid #8C7811; /* Cor da borda */
+    border-radius: 4px; /* Se quiser levemente arredondado */
+    margin-right: 8px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+/* Quando o input está marcado, muda a aparência do quadrado */
+.custom-radio input:checked + span {
+    background-color: #000; /* Cor do quadrado quando selecionado */
+    border-color: #F2CF1D;
+    position: relative;
+}
+
+/* Adiciona um efeito visual ao quadrado quando selecionado */
+.custom-radio input:checked + span::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /* Botao finalizar */
 #finish button {
     width: 80vw;
@@ -100,7 +135,7 @@ main {
     transition: .3s;
 }
 
-#finish button:hover {
+#finish button:hover, #score button:hover {
     opacity: 1;
     box-shadow: 0px 0px 10px#F2CF1D;
 }
@@ -112,14 +147,32 @@ main {
     padding: 20px;
     margin-top: 50px;
     border-radius: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
     left: 50%;
     transform: translate(-50%);
     background-color: #BFA41B;
 }
 
-.hidden {
-    display: none;
+#score div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#score button {
+    width: 90%;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 15px;
+    background-color: #0D0D0D;
+    color: aliceblue;
+    opacity: .9;
+    cursor: pointer;
 }
 
 /* footer */
@@ -143,4 +196,8 @@ footer {
     color: aliceblue;
     justify-content: space-between;
     align-items: center;
+}
+
+.hidden {
+    display: none;
 }

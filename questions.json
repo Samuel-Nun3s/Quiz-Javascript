@@ -1,62 +1,122 @@
 [
     {
-        "id": 1,
+        "id": 0,
         "name": "Questao 1",
-        "body": "1Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea distinctio deserunt odit dolor impedit vitae fugiat dolore magnam, ratione illo! Dolore pariatur deleniti, a dolorum cumque praesentium officiis maiores repellat.",
+        "body": "Qual palavra-chave é usada para declarar uma variável que pode ser alterada?",
         "right_alternative": {
-            "id": 0,
-            "alternative": "Resposta 1"
+            "id": 3,
+            "alternative": "var"
         },
         "alternatives": [
-            "Resposta 1", "Resposta 2", "Resposta 3", "Resposta 4"
+            "const", "let", "static", "var"
+        ]
+    },
+    {
+        "id": 1,
+        "name": "Questao 2",
+        "body": "Qual destes não é um tipo de dado primitivo em JavaScript?",
+        "right_alternative": {
+            "id": 2,
+            "alternative": "object"
+        },
+        "alternatives": [
+            "string", "boolean", "object", "number"
         ]
     },
     {
         "id": 2,
-        "name": "Questao 2",
-        "body": "2Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea distinctio deserunt odit dolor impedit vitae fugiat dolore magnam, ratione illo! Dolore pariatur deleniti, a dolorum cumque praesentium officiis maiores repellat.",
+        "name": "Questao 3",
+        "body": "Como se escreve um comentário de uma única linha em JavaScript?",
         "right_alternative": {
-            "id": 3,
-            "alternative": "Resposta 1"
+            "id": 1,
+            "alternative": "// Comentário"
         },
         "alternatives": [
-            "Resposta 1", "Resposta 2", "Resposta 3", "Resposta 4"
+            "/* Comentário */", "// Comentário", "<-- Comentário -->", "# Comentário"
         ]
     },
     {
         "id": 3,
-        "name": "Questao 3",
-        "body": "3Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea distinctio deserunt odit dolor impedit vitae fugiat dolore magnam, ratione illo! Dolore pariatur deleniti, a dolorum cumque praesentium officiis maiores repellat.",
+        "name": "Questao 4",
+        "body": "Qual destes métodos é usado para converter um JSON em objeto JavaScript?",
         "right_alternative": {
-            "id": 2,
-            "alternative": "Resposta 1"
+            "id": 1,
+            "alternative": "JSON.parse()"
         },
         "alternatives": [
-            "Resposta 1", "Resposta 2", "Resposta 3", "Resposta 4"
+            "JSON.stringify()", "JSON.parse()", "JSON.toObject()", "JSON.convert()"
         ]
     },
     {
         "id": 4,
-        "name": "Questao 4",
-        "body": "3Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea distinctio deserunt odit dolor impedit vitae fugiat dolore magnam, ratione illo! Dolore pariatur deleniti, a dolorum cumque praesentium officiis maiores repellat.",
+        "name": "Questao 5",
+        "body": "Como se chama uma função dentro de um objeto em JavaScript?",
         "right_alternative": {
-            "id": 1, 
-            "alternative": "Resposta 1"
+            "id": 0, 
+            "alternative": "Método"
         },
         "alternatives": [
-            "Resposta 1", "Resposta 2", "Resposta 3", "Resposta 4"
+            "Método", "Propriedade", "Evento", "Classe"
         ]
     },
     {
         "id": 5,
-        "name": "Questao 5",
-        "body": "3Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea distinctio deserunt odit dolor impedit vitae fugiat dolore magnam, ratione illo! Dolore pariatur deleniti, a dolorum cumque praesentium officiis maiores repellat.",
+        "name": "Questao 6",
+        "body": "Qual operador é usado para comparar valores sem converter tipos?",
         "right_alternative": {
-            "id": 3,
-            "alternative": "Resposta 1"
+            "id": 1,
+            "alternative": "==="
         },
         "alternatives": [
-            "Resposta 1", "Resposta 2", "Resposta 3", "Resposta 4"
+            "==", "===", "!=", "=>"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Questao 7",
+        "body": "Qual função é usada para atrasar a execução de um código em JavaScript?",
+        "right_alternative": {
+            "id": 0,
+            "alternative": "setTimeout()"
+        },
+        "alternatives": [
+            "setTimeout()", "setInterval()", "delay()", "wait()"
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Questao 8",
+        "body": "Qual destas estruturas de repetição não existe em JavaScript?",
+        "right_alternative": {
+            "id": 1,
+            "alternative": "foreach"
+        },
+        "alternatives": [
+            "for", "foreach", "do...while", "while"
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Questao 9",
+        "body": "O que o método map() faz em um array?",
+        "right_alternative": {
+            "id": 1,
+            "alternative": "Cria um novo array transformado"
+        },
+        "alternatives": [
+            "Modifica o array original", "Cria um novo array transformado", "Filtra os elementos do array", "Remove elementos duplicados"
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Questao 10",
+        "body": "O que console.log(typeof null) retorna?",
+        "right_alternative": {
+            "id": 1,
+            "alternative": "object"
+        },
+        "alternatives": [
+            "null", "object", "undefined", "string"
         ]
     }
 ]
