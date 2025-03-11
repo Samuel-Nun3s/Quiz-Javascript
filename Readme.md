@@ -21,21 +21,21 @@ Um quiz dinâmico criado com HTML, CSS e JavaScript, onde as perguntas são carr
 # 📝 Como Usar
 
 - Clone este repositório:
-
-- git clone https://github.com/seu-usuario/nome-do-repositorio.git
-
+``` bash
+git clone https://github.com/Samuel-Nun3s/Quiz-Javascript
+```
 - Abra a pasta do projeto:
-
-- cd nome-do-repositorio
-
+``` bash
+cd nome-do-repositorio
+```
 - Inicie um servidor local (requerido para carregar o JSON corretamente):
 
 - VS Code: Use a extensão Live Server
 
 - Python: Rode o comando:
-
-- python -m http.server
-
+```
+python -m http.server
+```
 - Acesse http://localhost:8000 no navegador.
 
 # 🛠 Personalização
@@ -61,17 +61,17 @@ As perguntas podem ser editadas no arquivo questions.json, seguindo a estrutura:
 - Faça um fork do repositório.
 
 - Crie uma branch:
-
-- git checkout -b minha-feature
-
+``` bash
+git checkout -b minha-feature
+```
 - Faça suas alterações e commite:
-
-- git commit -m "Adicionando nova funcionalidade"
-
+``` bash
+git commit -m "Adicionando nova funcionalidade"
+```
 - Envie para o GitHub:
-
+``` bash
 - git push origin minha-feature
-
+```
 - Abra um Pull Request 🚀
 
 # 📄 Licença
